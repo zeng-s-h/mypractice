@@ -1,0 +1,12 @@
+server:
+  port: 8021
+  servlet:
+    context-path: /zl
+spring:
+  application:
+    name: rabbitmq-client
+  rabbitmq:
+    host: 192.168.0.7
+    port: 5672
+    username: user
+    password: password
