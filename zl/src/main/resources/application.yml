@@ -1,0 +1,18 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /zl
+spring:
+#  datasource:
+#    username: root
+#    password: 123456
+#    url: 'jdbc:mysql://192.168.0.7:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8'
+#    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.zaxxer.hikari.HikariDataSource
+  application:
+    name: rabbitmq-provider
+  rabbitmq:
+    host: 192.168.0.7
+    port: 5672
+    username: user
+    password: password
