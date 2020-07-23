@@ -50,4 +50,10 @@ public class LoginController {
         return "ok";
     }
 
+    @GetMapping("/getUserInfo")
+    public User getUserInfo(@RequestParam("id") Integer id) {
+        User userInfo = userService.getUserInfo(id);
+        return userInfo;
+    }
+
 }

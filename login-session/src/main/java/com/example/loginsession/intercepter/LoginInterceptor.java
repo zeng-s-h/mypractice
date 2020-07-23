@@ -19,12 +19,12 @@ public class LoginInterceptor implements HandlerInterceptor {
         Object user = request.getSession().getAttribute("user");
         System.out.println("preHandle----" + user + " ::: " + request.getRequestURL());
 
-        if (user == null) {
+        /*if (user == null) {
             request.setAttribute("msg", "无权限请先登录");
             // 获取request返回页面到登录页
             //request.getRequestDispatcher("/login.html").forward(request, response);
             return false;
-        }
+        }*/
         return true;
     }
 
