@@ -10,6 +10,19 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
 
+    /**
+     * 根据id查询用户信息
+     *
+     * @param id 主键id
+     * @return User
+     */
     User getUserInfo(Integer id);
+
+    /**
+     * 插入用户
+     *
+     * @param user 用户
+     */
+    void saveUser(User user);
 
 }

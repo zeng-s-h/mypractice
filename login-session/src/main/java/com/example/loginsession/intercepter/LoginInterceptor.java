@@ -19,7 +19,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         Object user = request.getSession().getAttribute("user");
         //设置session过期时间：20分钟，单位是秒
         request.getSession().setMaxInactiveInterval(20*60);
-        System.out.println("preHandle----" + user + " ::: " + request.getRequestURL());
+        //System.out.println("preHandle----" + user + " ::: " + request.getRequestURL());
 
         /*if (user == null) {
             request.setAttribute("msg", "无权限请先登录");
@@ -32,11 +32,11 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("postHand");
+        //System.out.println("postHand");
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("postHand");
+        //System.out.println("postHand");
     }
 }
