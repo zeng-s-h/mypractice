@@ -5,7 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@MapperScan("com.example.loginsession") //扫描的mapper
+/**
+ * @author 小白i
+ */
+
+@MapperScan("com.example.loginsession")
 @SpringBootApplication
 public class LoginSessionApplication {
 
