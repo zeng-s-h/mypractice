@@ -17,6 +17,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         //获取session
         Object user = request.getSession().getAttribute("user");
+        //设置session过期时间：20分钟，单位是秒
+        request.getSession().setMaxInactiveInterval(20*60);
         System.out.println("preHandle----" + user + " ::: " + request.getRequestURL());
 
         /*if (user == null) {
