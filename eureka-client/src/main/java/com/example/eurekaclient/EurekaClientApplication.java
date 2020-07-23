@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author 小白i
+ */
 @RestController
 @EnableEurekaClient
 @SpringBootApplication
@@ -28,7 +31,7 @@ public class EurekaClientApplication {
     @GetMapping(value = "/getUser")
     @ResponseBody
     public Map<String, Object> getUser(@RequestParam Integer id) {
-        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> data = new HashMap<>(4);
         data.put("id", id);
         data.put("userName", "admin");
         data.put("from", "provider-A");
