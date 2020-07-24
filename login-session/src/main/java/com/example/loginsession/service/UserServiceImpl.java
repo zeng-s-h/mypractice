@@ -1,9 +1,13 @@
 package com.example.loginsession.service;
 
+import com.example.loginsession.dynamicdatasource.DataSourceSelector;
+import com.example.loginsession.dynamicdatasource.DynamicDataSourceEnum;
 import com.example.loginsession.entity.User;
 import com.example.loginsession.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author 小白i
@@ -18,6 +22,26 @@ public class UserServiceImpl {
     public User addUser(final User user) {
         userMapper.saveUser(user);
         return user;
+    }
+
+    @DataSourceSelector(value = DynamicDataSourceEnum.SLAVE)
+    public List<User> listUser() {
+        return userMapper.selectAll();
+    }
+
+    @DataSourceSelector(value = DynamicDataSourceEnum.MASTER)
+    public void update() {
+        User user = new User();
+        user.setId(Long.parseLong("1196978513958141952"));
+        user.setUsername("小宝贝");
+        userMapper.updateUserById(user);
+    }
+
+    @DataSourceSelector(value = DynamicDataSourceEnum.SLAVE)
+    public User find() {
+        User user = new User();
+        user.setId(Long.parseLong("1196978513958141952"));
+        return userMapper.getUserInfo(1);
     }
 
     public User getUserInfo(Integer id) {

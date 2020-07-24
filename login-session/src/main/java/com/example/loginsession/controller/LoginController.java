@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author 小白i
@@ -54,6 +55,11 @@ public class LoginController {
     public User getUserInfo(@RequestParam("id") Integer id) {
         User userInfo = userService.getUserInfo(id);
         return userInfo;
+    }
+
+    @GetMapping("/selectAll")
+    public List<User> selectAll() {
+        return userService.listUser();
     }
 
 }

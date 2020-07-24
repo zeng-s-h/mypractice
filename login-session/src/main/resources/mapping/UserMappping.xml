@@ -2,11 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.loginsession.mapper.UserMapper">
 
+    <resultMap id="userMap" type="com.example.loginsession.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
     <select id="getUserInfo" resultType="com.example.loginsession.entity.User">
         select * from user where id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="userMap">
+        select id,username,password from user
     </select>
 
     <insert id="saveUser">
         insert into user (username,password) values (#{username},#{password})
     </insert>
+
+    <update id="updateUserById" parameterType="com.example.loginsession.entity.User">
+        update user set username = #{username} where id = #{id}
+    </update>
 </mapper>

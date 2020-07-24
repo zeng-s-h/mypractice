@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author 小白i
  */
 
-@MapperScan("com.example.loginsession")
+@MapperScan("com.example.loginsession.mapper")
 @SpringBootApplication
 public class LoginSessionApplication {
 
