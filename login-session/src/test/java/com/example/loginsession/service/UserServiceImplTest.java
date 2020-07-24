@@ -10,8 +10,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * @author 小白i
  * @date 2020/7/24
