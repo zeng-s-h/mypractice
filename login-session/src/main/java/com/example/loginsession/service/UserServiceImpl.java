@@ -6,6 +6,7 @@ import com.example.loginsession.entity.User;
 import com.example.loginsession.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -30,11 +31,13 @@ public class UserServiceImpl {
     }
 
     @DataSourceSelector(value = DynamicDataSourceEnum.MASTER)
+    @Transactional(value = "dataSourceTx", rollbackFor = Exception.class)
     public void update() {
         User user = new User();
-        user.setId(Long.parseLong("1196978513958141952"));
+        user.setId(Long.parseLong("1"));
         user.setUsername("小宝贝");
         userMapper.updateUserById(user);
+        //throw new RuntimeException("master回滚数据");
     }
 
     @DataSourceSelector(value = DynamicDataSourceEnum.SLAVE)
