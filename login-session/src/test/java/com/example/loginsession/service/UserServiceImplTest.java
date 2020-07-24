@@ -45,5 +45,8 @@ public class UserServiceImplTest {
 
     @Test
     public void getUserInfo() {
+        userService.update();
+        List<User> users = userService.listUser();
+        System.out.println(users);
     }
 }
