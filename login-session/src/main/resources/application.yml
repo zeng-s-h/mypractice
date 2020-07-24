@@ -1,16 +1,24 @@
 server:
   port: 8080
 spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
   resources:
     static-locations: classpath:/templates
   datasource:
-    username: root
-    password: root
-    url: 'jdbc:mysql://127.0.0.1:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8'
+    master:
+      username: root
+      password: 123456
+      jdbc-url: 'jdbc:mysql://192.168.199.247:3306/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8'
+    slave:
+      username: root
+      password: 123456
+      jdbc-url: 'jdbc:mysql://192.168.199.247:3307/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8'
     driver-class-name: com.mysql.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
 
 mybatis:
   mapper-locations: classpath:mapping/**/*.xml
-  type-aliases-package: com.example.loginsession.entity
+#  type-aliases-package: com.example.loginsession.entity
 
